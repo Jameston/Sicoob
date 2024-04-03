@@ -1,0 +1,13 @@
+{
+    "name": "Pessoa",
+    "alias": "pessoa",
+    "description": "",
+    "keywords": [],
+    "order": 0,
+    "providers": [
+        "Modules\\Pessoa\\Providers\\PessoaServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}
