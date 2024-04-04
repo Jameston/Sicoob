@@ -1,0 +1,23 @@
+{
+    "name": "nwidart/Autenticacao",
+    "description": "",
+    "authors": [
+        {
+            "name": "Jameston",
+            "email": "jameston@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Autenticacao\\": ""
+        }
+    }
+}

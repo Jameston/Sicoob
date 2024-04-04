@@ -4,15 +4,8 @@ namespace Modules\Pessoa\Http\Requests;
 
 use App\Http\Requests\FormRequest;
 
-/**
- * Class CodigoRequest
- * @package Modules\Pessoa\Http\Requests
- */
 class CodigoRequest extends FormRequest
 {
-    /**
-     * @return bool
-     */
     public function authorize()
     {
         return true;

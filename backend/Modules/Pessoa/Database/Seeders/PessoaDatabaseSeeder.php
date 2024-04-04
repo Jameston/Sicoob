@@ -16,24 +16,6 @@ class PessoaDatabaseSeeder extends Seeder
     {
         Model::unguard();
 
-        $this->call(PessoaTipo::insert([
-            [
-                'descricao' => 'Cliente',
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s'),
-            ], 
-            [
-                'descricao' => 'Fornecedor',
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s'),
-            ],
-            [
-                'descricao' => 'Transportadora',
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s'),
-            ]
-        ])
-    );
-        
+        // $this->call("OthersTableSeeder");
     }
 }

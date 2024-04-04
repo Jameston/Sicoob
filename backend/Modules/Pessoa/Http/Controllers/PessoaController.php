@@ -2,7 +2,6 @@
 
 namespace Modules\Pessoa\Http\Controllers;
 
-use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Modules\Pessoa\Http\Requests\CodigoRequest;
@@ -13,35 +12,19 @@ use Modules\Pessoa\Services\ServicePessoa;
 
 class PessoaController extends Controller
 {
+    protected $service;
 
-    protected $servicePessoa;
-
-    /**
-     * PessoaController constructor.
-     * @param ServiceEmpresa $servicePessoa
-     */
-    public function __construct(
-        ServicePessoa $servicePessoa
-    ) {
-        $this->service = $servicePessoa;
+    public function __construct(ServicePessoa $service) {
+        $this->service = $service;
     }
 
-    /**
-     * Display a listing of the resource.
-     * @return Renderable
-     */
     public function index(Request $request)
     {
-        dd('teste');
         $query = $this->service->paginate($request->all());
 
         return $this->returnQuery($query);
     }
 
-    /**
-     * Display a listing of the resource.
-     * @return Renderable
-     */
     public function find(IDRequest $request)
     {
         $query = $this->service->getPessoaDados($request->get('id_pessoa'));
@@ -49,10 +32,13 @@ class PessoaController extends Controller
         return $this->returnQuery($query);
     }
 
-    /**
-     * Display a listing of the resource.
-     * @return Renderable
-     */
+    public function getByCodigo(CodigoRequest $request)
+    {
+        $query = $this->service->getByCodigo($request->get('codigo'), $this->idEmpresa());
+
+        return $this->returnQuery($query);
+    }
+
     public function getByNome(Request $request)
     {
         $query = $this->service->getByNome($request->get('nome'), $this->idEmpresa());
@@ -60,10 +46,6 @@ class PessoaController extends Controller
         return $this->returnQuery($query);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     * @return Renderable
-     */
     public function create(CreateRequest $request)
     {
         $arr = $request->all();
@@ -74,11 +56,6 @@ class PessoaController extends Controller
         return $this->returnQuery($query);
     }
 
-    /**
-     * Update the specified resource in storage.
-     * @param Request $request
-     * @return Renderable
-     */
     public function update(UpdateRequest $request)
     {
         $arr = $request->all();
@@ -88,11 +65,6 @@ class PessoaController extends Controller
         return $this->returnQuery($query);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     * @param int $id
-     * @return Renderable
-     */
     public function destroy(IDRequest $request)
     {
         $arr = $request->all();

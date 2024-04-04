@@ -4,15 +4,8 @@ namespace Modules\Pessoa\Http\Requests;
 
 use App\Http\Requests\FormRequest;
 
-/**
- * Class IDRequest
- * @package Modules\Pessoa\Http\Requests
- */
 class IDRequest extends FormRequest
 {
-    /**
-     * @return bool
-     */
     public function authorize()
     {
         return true;

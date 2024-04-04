@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Respostas>
+  <Cabecalho>
+    <PDC>432432</PDC>
+    <Requisicao>3381</Requisicao>
+    <Data_Vencimento>2022-06-29</Data_Vencimento>
+    <Hora_Vencimento>00:00</Hora_Vencimento>
+  </Cabecalho>
+  <Fornecedores>
+    <Fornecedor>
+      <Razao_Social>Fuzila</Razao_Social>
+      <CNPJ>20.590.555/0001-48</CNPJ>
+      <Faturamento_Minimo>0.0000</Faturamento_Minimo>
+      <Prazo_Entrega>1</Prazo_Entrega>
+      <Validade_Proposta>2022-06-29</Validade_Proposta>
+      <Id_Forma_Pagamento>14</Id_Forma_Pagamento>
+      <Frete>CIF</Frete>
+      <Data_Confirmacao>2022-07-06 19:52:42</Data_Confirmacao>
+    </Fornecedor>
+    <Fornecedor>
+      <Razao_Social>axel</Razao_Social>
+      <CNPJ>20.590.555/0001-48</CNPJ>
+      <Faturamento_Minimo>0.0000</Faturamento_Minimo>
+      <Prazo_Entrega>1</Prazo_Entrega>
+      <Validade_Proposta>2022-06-29</Validade_Proposta>
+      <Id_Forma_Pagamento>14</Id_Forma_Pagamento>
+      <Frete>CIF</Frete>
+      <Data_Confirmacao>2022-07-06 19:53:11</Data_Confirmacao>
+    </Fornecedor>
+  </Fornecedores>
+  <Itens>
+    <Item>
+      <Id_Artigo>32132</Id_Artigo>
+      <Cod_Produto>007960</Cod_Produto>
+      <Quantidade>200</Quantidade>
+      <Campo_Extra>
+        <Nome>justificativa</Nome>
+        <Valor>-</Valor>
+      </Campo_Extra>
+      <Campo_Extra>
+        <Nome>Qtd_Embalagem</Nome>
+        <Valor>10</Valor>
+      </Campo_Extra>
+      <Resposta>
+        <CNPJ>05.531.725/0001-20</CNPJ>
+        <Fabricante>Gradi</Fabricante>
+        <Embalagem>DEXMEDETOMIDINA 100MCG/ML SOLUCAO INJATAVEL 2ML F/</Embalagem>
+        <Preco_Unitario>32.3100</Preco_Unitario>
+        <Preco_Total>6462.0000</Preco_Total>
+        <Comentario/>
+      </Resposta>
+    </Item>
+    <Item>
+      <Id_Artigo>32132</Id_Artigo>
+      <Cod_Produto>007498</Cod_Produto>
+      <Quantidade>200</Quantidade>
+      <Campo_Extra>
+        <Nome>justificativa</Nome>
+        <Valor>-</Valor>
+      </Campo_Extra>
+      <Campo_Extra>
+        <Nome>Qtd_Embalagem</Nome>
+        <Valor>10</Valor>
+      </Campo_Extra>
+      <Resposta>
+        <CNPJ>05.531.725/0001-20</CNPJ>
+        <Fabricante>Tomate Graudo</Fabricante>
+        <Embalagem>HIDROCORTISONA  100MG SOLUCAO INJ FR-AM - UM:</Embalagem>
+        <Preco_Unitario>3.3300</Preco_Unitario>
+        <Preco_Total>666.0000</Preco_Total>
+        <Comentario/>
+      </Resposta>
+    </Item>
+    <Item>
+      <Id_Artigo>32132</Id_Artigo>
+      <Cod_Produto>007517</Cod_Produto>
+      <Quantidade>150</Quantidade>
+      <Campo_Extra>
+        <Nome>justificativa</Nome>
+        <Valor>-</Valor>
+      </Campo_Extra>
+      <Campo_Extra>
+        <Nome>Qtd_Embalagem</Nome>
+        <Valor>10</Valor>
+      </Campo_Extra>
+      <Resposta>
+        <CNPJ>05.531.725/0001-20</CNPJ>
+        <Fabricante>PURELAC TANGARA EMB. 10K GRANEL</Fabricante>
+        <Embalagem>METILPREDNISOLONA 500MG SOLUCAO INJETAVEL F/A -UM:</Embalagem>
+        <Preco_Unitario>12.2200</Preco_Unitario>
+        <Preco_Total>1833.0000</Preco_Total>
+        <Comentario/>
+      </Resposta>
+    </Item>
+    <Item>
+      <Id_Artigo>32132</Id_Artigo>
+      <Cod_Produto>007961</Cod_Produto>
+      <Quantidade>500</Quantidade>
+      <Campo_Extra>
+        <Nome>justificativa</Nome>
+        <Valor>-</Valor>
+      </Campo_Extra>
+      <Campo_Extra>
+        <Nome>Qtd_Embalagem</Nome>
+        <Valor>10</Valor>
+      </Campo_Extra>
+      <Resposta>
+        <CNPJ>05.531.725/0001-20</CNPJ>
+        <Fabricante>Grao de bico</Fabricante>
+        <Embalagem>DEXTROCETAMINA 50MG/ML  SOLUCAO INJETAVEL 2ML AM</Embalagem>
+        <Preco_Unitario>10.5000</Preco_Unitario>
+        <Preco_Total>5250.0000</Preco_Total>
+        <Comentario/>
+      </Resposta>
+    </Item>
+    <Item>
+      <Id_Artigo>32132</Id_Artigo>
+      <Cod_Produto>007541</Cod_Produto>
+      <Quantidade>200</Quantidade>
+      <Campo_Extra>
+        <Nome>justificativa</Nome>
+        <Valor>-</Valor>
+      </Campo_Extra>
+      <Campo_Extra>
+        <Nome>Qtd_Embalagem</Nome>
+        <Valor>10</Valor>
+      </Campo_Extra>
+      <Resposta>
+        <CNPJ>05.531.725/0001-20</CNPJ>
+        <Fabricante>Alto Alegre</Fabricante>
+        <Embalagem>Produto novo 12</Embalagem>
+        <Preco_Unitario>44.3300</Preco_Unitario>
+        <Preco_Total>8866.0000</Preco_Total>
+        <Comentario>pedido obs</Comentario>
+      </Resposta>
+    </Item>
+  </Itens>
+</Respostas>

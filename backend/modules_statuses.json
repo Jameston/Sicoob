@@ -1,0 +1,12 @@
+{
+    "Emitentes": true,
+    "Auth": true,
+    "Produtos": true,
+    "Usuarios": true,
+    "Autenticacao": true,
+    "Empresa": true,
+    "Pessoa": true,
+    "Usuario": true,
+    "Produto": true,
+    "Sistema": true
+}

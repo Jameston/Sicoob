@@ -6,10 +6,6 @@ use App\Repositories\BaseRepository;
 use Modules\Pessoa\Contracts\PessoaInterfaceRepository;
 use Modules\Pessoa\Entities\Pessoa;
 
-/**
- * Class PessoaRepository
- * @package Modules\Pessoa\Repositories
- */
 class PessoaRepository extends BaseRepository implements PessoaInterfaceRepository
 {
     protected $modelClass = Pessoa::class;
@@ -19,7 +15,25 @@ class PessoaRepository extends BaseRepository implements PessoaInterfaceReposito
         $query = $this->newQuery();
         $query->where('id_pessoa', $idPessoa)
             ->leftJoin('pessoa_tipo as pt', 'pt.id_tipo', '=', 'pessoa.id_pessoa_tipo')
-            ->select('pessoa.*', 'pt.descricao as tipo_cliente');
+            ->select('pessoa.*', 'pt.descricao as tipo_cliente')
+            ->with('enderecos')
+            ->with('fones')
+            ->with('emails');
+
+        return $query->get()->first();
+    }
+
+    public function getByCodigo($codigo, $idEmpresa)
+    {
+        $query = $this->newQuery();
+        $query->where('codigo', $codigo)
+            ->where('id_empresa', $idEmpresa)
+            ->leftJoin('pessoa_tipo as pt', 'pt.id_tipo', '=', 'pessoa.id_pessoa_tipo')
+            ->select('pessoa.*', 'pt.descricao as tipo_cliente')
+            ->with('enderecos.tipo')
+            ->with('enderecos.cidade')
+            ->with('fones.tipo')
+            ->with('emails.tipo');
 
         return $query->get()->first();
     }
@@ -27,7 +41,7 @@ class PessoaRepository extends BaseRepository implements PessoaInterfaceReposito
     public function paginate($request)
     {
         $query = $this->newQuery();
-        $query->leftJoin('pessoa_tipo as pt', 'pt.id_tipo', '=', 'pessoa.id_pessoa_tipo')
+        $query->leftJoin('pessoa_tipo as pt', 'pt.id_tipo', '=', 'pessoa.id_pessoa')
             ->select('pessoa.*', 'pt.descricao as tipo_cliente');
 
         if (isset($request['columnFilters'])) {
@@ -46,7 +60,9 @@ class PessoaRepository extends BaseRepository implements PessoaInterfaceReposito
             }
         }
 
-        return $query->paginate($request['per_page']);
+        return $query->paginate();
+
+        // return $query->paginate($request['per_page']);
     }
 
     public function getByNome($nome, $idEmpresa)

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Respostas>
+  <Cabecalho>
+    <PDC>432432</PDC>
+    <Requisicao>3470</Requisicao>
+    <Data_Vencimento>2022-07-15</Data_Vencimento>
+    <Hora_Vencimento>00:00</Hora_Vencimento>
+  </Cabecalho>
+  <Fornecedores>
+    <Fornecedor>
+      <Razao_Social>COMERCIO DE CARNES FINCO</Razao_Social>
+      <CNPJ>73.426.579/0000-12</CNPJ>
+      <Faturamento_Minimo>0.0000</Faturamento_Minimo>
+      <Prazo_Entrega>1</Prazo_Entrega>
+      <Validade_Proposta>2022-07-15</Validade_Proposta>
+      <Id_Forma_Pagamento>4</Id_Forma_Pagamento>
+      <Frete>CIF</Frete>
+      <Data_Confirmacao>2022-07-13 13:22:43</Data_Confirmacao>
+    </Fornecedor>
+    <Fornecedor>
+      <Razao_Social>LUDOVICO TOZZO</Razao_Social>
+      <CNPJ>83.299.743/0010-22</CNPJ>
+      <Faturamento_Minimo>0.0000</Faturamento_Minimo>
+      <Prazo_Entrega>1</Prazo_Entrega>
+      <Validade_Proposta>2022-07-15</Validade_Proposta>
+      <Id_Forma_Pagamento>4</Id_Forma_Pagamento>
+      <Frete>CIF</Frete>
+      <Data_Confirmacao>2022-07-13 13:22:53</Data_Confirmacao>
+    </Fornecedor>
+  </Fornecedores>
+  <Itens>
+    <Item>
+      <Id_Artigo>32132</Id_Artigo>
+      <Cod_Produto>114</Cod_Produto>
+      <Quantidade>20</Quantidade>
+      <Campo_Extra>
+        <Nome>Selecionado</Nome>
+        <Valor>S</Valor>
+      </Campo_Extra>
+      <Resposta>
+        <CNPJ>73.426.579/0000-12</CNPJ>
+        <Fabricante>perdigao</Fabricante>
+        <Embalagem>CALABRESA FATIADA 1KG LACTOFRIOS</Embalagem>
+        <Preco_Unitario>232.4400</Preco_Unitario>
+        <Preco_Total>4648.8000</Preco_Total>
+        <Comentario>teste ismael</Comentario>
+      </Resposta>
+    </Item>
+    <Item>
+      <Id_Artigo>32132</Id_Artigo>
+      <Cod_Produto>10</Cod_Produto>
+      <Quantidade>20</Quantidade>
+      <Campo_Extra>
+        <Nome>Selecionado</Nome>
+        <Valor>S</Valor>
+      </Campo_Extra>
+      <Resposta>
+        <CNPJ>83.299.743/0010-22</CNPJ>
+        <Fabricante>Vigor</Fabricante>
+        <Embalagem>NATA BALDE 3KG</Embalagem>
+        <Preco_Unitario>1.1100</Preco_Unitario>
+        <Preco_Total>22.2000</Preco_Total>
+        <Comentario>teste fuzila</Comentario>
+      </Resposta>
+    </Item>
+  </Itens>
+</Respostas>
