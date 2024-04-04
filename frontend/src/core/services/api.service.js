@@ -11,7 +11,7 @@ Vue.use(VueToast, {
 
 export const http = axios.create({
     // baseURL: `${SYSTEM_VARIABLE.BASE_URL_API}/api`,
-    baseURL: `http://127.0.0.1:8000/api`,
+    baseURL: `http://127.0.0.1:8000/`,
     headers: {
         Accept: "application/json",
     },

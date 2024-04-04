@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Sistema\Entities;
+namespace Modules\Pessoa\Entities;
 
 use App\Entities\BaseModel;
 

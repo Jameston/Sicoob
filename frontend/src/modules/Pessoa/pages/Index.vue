@@ -2,7 +2,7 @@
   <TableApp
     titulo="Clientes"
     subTitulo="Cadastro de Clientes"
-    api-url="/api/pessoa"
+    api-url="/api/pessoa/"
     :fields="fields"
     classFilterColumn="pessoa"
     ref="pessoa"
@@ -79,14 +79,13 @@
 
 <script>
 import { mapGetters } from "vuex";
-import { SET_BREADCRUMB } from "@/core/services/store/breadcrumbs.module";
 import Pencil from "vue-material-design-icons/Pencil.vue";
 import TrashCanIcon from "vue-material-design-icons/TrashCan.vue";
 import TableApp from "@/components/Table";
 
 export default {
   name: "app-pessoa",
-  components: {
+  components: { 
     Pencil,
     TrashCanIcon,
     TableApp
@@ -145,16 +144,5 @@ export default {
       return this.layoutConfig();
     }
   },
-  mounted() {
-    this.$store.dispatch(SET_BREADCRUMB, [
-      {
-        title: "Clientes",
-        action: {
-          title: "Novo",
-          url: "pessoaNova"
-        }
-      }
-    ]);
-  }
 };
 </script>

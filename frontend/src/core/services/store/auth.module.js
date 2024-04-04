@@ -78,6 +78,7 @@ const actions = {
             resolve(data);
           })
           .catch(({ response }) => {
+            if (!response) return;
             context.commit(SET_ERROR, response.data.errors);
             reject(response);
           });

@@ -579,7 +579,7 @@
 <script>
 import { validationMixin } from "vuelidate";
 import { mask } from "vue-the-mask";
-import { SistemaMixin } from "@/modules/Application";
+import { SistemaMixin } from "@/modules/Sistema/mixins";
 import PessoaEmailData, { PessoaEmailRequired } from "./PessoaEmailData";
 import PessoaData, { PessoaDataRequired } from "./PessoaData";
 import PessoaTelefoneData, {

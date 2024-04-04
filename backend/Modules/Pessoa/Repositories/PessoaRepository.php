@@ -60,9 +60,7 @@ class PessoaRepository extends BaseRepository implements PessoaInterfaceReposito
             }
         }
 
-        return $query->paginate();
-
-        // return $query->paginate($request['per_page']);
+        return $query->paginate($request['per_page']);
     }
 
     public function getByNome($nome, $idEmpresa)

@@ -4,8 +4,7 @@
 
 <script>
 import Form from "./Form.vue";
-import { SET_BREADCRUMB } from "@/core/services/store/breadcrumbs.module";
-import { PessoaMixin } from "@/modules/Application";
+import { PessoaMixin } from "@/modules/Pessoa/mixins";
 
 export default {
   name: "app-pessoa-update",
@@ -38,11 +37,6 @@ export default {
     }
   },
   mounted() {
-    this.$store.dispatch(SET_BREADCRUMB, [
-      {
-        title: "Pessoas"
-      }
-    ]);
     this.getInit();
   }
 };

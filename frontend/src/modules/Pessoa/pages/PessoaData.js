@@ -2,31 +2,18 @@ import { required } from "vuelidate/lib/validators";
 
 export default class PessoaData {
   nome = "";
-
   responsavel = "";
-
   status = "A";
-
   observacao = "";
-
   cnpj_cpf = "";
-
   ie_rg = "";
-
   inscricao_municipal = "";
-
   nome_fantasia = "";
-
   id_empresa = 1;
-
   id_pessoa_tipo = 1;
-
   email = [];
-
   endereco = [];
-
   telefone = [];
-
   constructor({
     nome = "",
     responsavel = "",
