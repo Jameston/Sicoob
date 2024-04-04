@@ -14,7 +14,7 @@ use Illuminate\Http\Request;
 */
 
 Route::prefix('pessoa')->group(function() {
-    Route::post('/', 'PessoaController@index');
+    Route::get('/', 'PessoaController@index');
     Route::post('/find', 'PessoaController@find');
     Route::post('/nome', 'PessoaController@getByNome');
     Route::post('/create', 'PessoaController@create');

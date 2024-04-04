@@ -203,7 +203,7 @@ export default {
   },
   data() {
     return {
-      baseUrl: "",
+      baseUrl: "http://127.0.0.1:8000/",
       token: null,
       loaderTable: true,
       selectFilter: this.filtroSelect,

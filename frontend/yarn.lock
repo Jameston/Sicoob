@@ -1371,9 +1371,9 @@
     "@types/node" "*"
 
 "@types/node@*":
-  version "20.12.3"
-  resolved "https://registry.npmjs.org/@types/node/-/node-20.12.3.tgz"
-  integrity sha512-sD+ia2ubTeWrOu+YMF+MTAB7E+O7qsMqAbMfW7DG3K1URwhZ5hN1pLlRVGbf4wDFzSfikL05M17EyorS86jShw==
+  version "20.12.4"
+  resolved "https://registry.npmjs.org/@types/node/-/node-20.12.4.tgz"
+  integrity sha512-E+Fa9z3wSQpzgYQdYmme5X3OTuejnnTx88A6p6vkkJosR3KBz+HpE3kqNm98VE6cfLFcISx7zW7MsJkH6KwbTw==
   dependencies:
     undici-types "~5.26.4"
 
@@ -3206,9 +3206,9 @@ ee-first@1.1.1:
   integrity sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==
 
 electron-to-chromium@^1.4.668:
-  version "1.4.724"
-  resolved "https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.4.724.tgz"
-  integrity sha512-RTRvkmRkGhNBPPpdrgtDKvmOEYTrPlXDfc0J/Nfq5s29tEahAwhiX4mmhNzj6febWMleulxVYPh7QwCSL/EldA==
+  version "1.4.726"
+  resolved "https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.4.726.tgz"
+  integrity sha512-xtjfBXn53RORwkbyKvDfTajtnTp0OJoPOIBzXvkNbb7+YYvCHJflba3L7Txyx/6Fov3ov2bGPr/n5MTixmPhdQ==
 
 emoji-regex@^8.0.0:
   version "8.0.0"
@@ -4756,9 +4756,9 @@ lru-cache@^7.7.1:
   integrity sha512-jumlc0BIUrS3qJGgIkWZsyfAM7NCWiBcCDhnd+3NNM5KbBmLTgHVfWBcg6W+rLUsIpzpERPsvwUP7CckAQSOoA==
 
 magic-string@^0.30.7:
-  version "0.30.8"
-  resolved "https://registry.npmjs.org/magic-string/-/magic-string-0.30.8.tgz"
-  integrity sha512-ISQTe55T2ao7XtlAStud6qwYPZjE4GK1S/BeVPus4jrq6JuOnQ00YKQC581RWhR122W7msZV263KzVeLoqidyQ==
+  version "0.30.9"
+  resolved "https://registry.npmjs.org/magic-string/-/magic-string-0.30.9.tgz"
+  integrity sha512-S1+hd+dIrC8EZqKyT9DstTH/0Z+f76kmmvZnkfQVmOpDEF9iVgdYif3Q/pIWHmCoo59bQVGW0kVL3e2nl+9+Sw==
   dependencies:
     "@jridgewell/sourcemap-codec" "^1.4.15"
 
@@ -7110,10 +7110,10 @@ vuelidate@^0.7.5:
   resolved "https://registry.npmjs.org/vuelidate/-/vuelidate-0.7.7.tgz"
   integrity sha512-pT/U2lDI67wkIqI4tum7cMSIfGcAMfB+Phtqh2ttdXURwvHRBJEAQ0tVbUsW9Upg83Q5QH59bnCoXI7A9JDGnA==
 
-vuetable-2@^2.0.0-beta.4:
-  version "2.0.0-beta.4"
-  resolved "https://registry.npmjs.org/vuetable-2/-/vuetable-2-2.0.0-beta.4.tgz"
-  integrity sha512-sWSdKIPYiATI9hOuPlQ09iSWEFAfhe6sPovl4hK2SemvqvgxLIF8UjG3LwJJC7idWS9UPpK9fRrSXoFJhRcluQ==
+vuetable-2@^1.7.5:
+  version "1.7.5"
+  resolved "https://registry.npmjs.org/vuetable-2/-/vuetable-2-1.7.5.tgz"
+  integrity sha512-cKLD7ufbwNZZA1exOU1U7oXC+nrXq88YwDNAPL8dR9Kk1Pj/HMvLhOr4xw/15748c4OfYxBZQvVTJh4Hnu35AA==
   dependencies:
     axios "^0.15.3"
 
