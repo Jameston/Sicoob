@@ -1,7 +1,6 @@
 <template>
   <TableApp
-    titulo="Clientes"
-    subTitulo="Cadastro de Clientes"
+    titulo="Unidade de medida"
     api-url="/api/unidade/"
     :fields="fields"
     classFilterColumn="unidade"

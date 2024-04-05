@@ -1,6 +1,6 @@
 <template>
   <TableApp
-    subTitulo="Cadastro de Clientes"
+    titulo="Grupos"
     api-url="/api/produto/grupos/"
     :fields="fields"
     classFilterColumn="grupo"

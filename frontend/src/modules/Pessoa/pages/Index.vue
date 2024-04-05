@@ -1,7 +1,7 @@
 <template>
   <TableApp
-    subTitulo="Cadastro de Clientes"
-    api-url="http://127.0.0.1:8000/api/pessoa/"
+    titulo="Clientes"
+    api-url="/api/pessoa/"
     :fields="fields"
     classFilterColumn="pessoa"
     ref="pessoa"
