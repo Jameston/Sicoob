@@ -1,7 +1,7 @@
 export default [
   {
     path: "/login",
-    component: () => import("@/components/Layout/LayoutNoAuth.vue"),
+    component: () => import("@/components/Layout/VueBootstrap.vue"),
     children: [
       {
         name: "login",

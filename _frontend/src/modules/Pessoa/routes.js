@@ -1,25 +1,25 @@
 export default [
   {
     path: "/clientes",
-    component: () => import("@/components/Layout/LayoutAuth.vue"),
+    component: () => import("@/components/Layout/VueBootstrap.vue"),
     children: [
       {
         name: "pessoaLista",
         path: "",
         component: () => import("@/modules/Pessoa/pages/Index"),
-        meta: { modulo: "Pessoas", id_tipo: 1 }
+        meta: { menu: "Cadastros", id_tipo: 1 }
       },
       {
         name: "pessoaNova",
         path: "nova",
         component: () => import("@/modules/Pessoa/pages/Create"),
-        meta: { modulo: "Pessoas", id_tipo: 1 }
+        meta: { menu: "Cadastros", id_tipo: 1 }
       },
       {
         name: "pessoaEditar",
         path: ":codigo/editar",
         component: () => import("@/modules/Pessoa/pages/Update"),
-        meta: { modulo: "Pessoas", id_tipo: 1 }
+        meta: { menu: "Cadastros", id_tipo: 1 }
       }
     ]
   }
