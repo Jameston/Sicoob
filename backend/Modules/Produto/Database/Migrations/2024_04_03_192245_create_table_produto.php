@@ -17,13 +17,8 @@ class CreateTableProduto extends Migration
             $table->bigIncrements('id_produto');
             $table->string('descricao', 100);
             $table->decimal('preco', 18, 4)->default('0.01');
-            $table->decimal('custo', 18, 4)->default('0.00');
             $table->boolean('status')->default(true);
-            $table->text('observacao')->nullable();
-            $table->string('codigo_barras', 20)->nullable();
             $table->decimal('quantidade', 18, 4)->nullable()->default('0.00');
-            $table->integer('id_empresa')->unsigned();
-            $table->foreign('id_empresa')->references('id_empresa')->on('empresa');
             $table->integer('id_uni_medida')->unsigned()->nullable();
             $table->foreign('id_uni_medida')->references('id_uni_medida')->on('produto_uni_medida');
             $table->integer('id_grupo')->unsigned()->nullable();

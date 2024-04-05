@@ -27,6 +27,24 @@ class ServiceProduto extends ServiceBase
         $this->repositoryUniMedida = $repositoryUniMedida;
     }
 
+    public function paginate($request)
+    {
+        try {
+            $dados = $this->repository->paginate($request);
+            return [
+                'status' => true,
+                'data' => $dados,
+                'msg' => ''
+            ];
+        } catch (\Exception $e) {
+            return [
+                'status' => false,
+                'data' => [],
+                'msg' => $e->getMessage()
+            ];
+        };
+    }
+
     public function createProduto($data)
     {
         try {

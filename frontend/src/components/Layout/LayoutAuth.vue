@@ -53,7 +53,9 @@
         <div class="container">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0"><small>{{ modulo != null ? modulo : 'Sicoob' }}</small></h1>
+              <h1 class="m-0">
+                <small>{{ modulo != null ? modulo : "Sicoob" }}</small>
+              </h1>
             </div>
           </div>
         </div>
@@ -68,24 +70,29 @@
 </template>
 
 <script>
+import { VERIFY_AUTH } from "@/core/services/store/auth.module";
+
 export default {
-  name: 'LayoutAuth',
+  name: "LayoutAuth",
   data() {
     return {
       modulo: null,
-    }
+    };
   },
   methods: {
     setTitle() {
       const router = this.$router.history.current;
-      this.modulo = router.meta?.modulo ?? null
-    }
+      this.modulo = router.meta?.modulo ?? null;
+    },
   },
   updated() {
     this.setTitle();
   },
-  mounted() {
+  async mounted() {
     this.setTitle();
-  }
+    this.$root.isLoading = true;
+    await this.$store.dispatch(VERIFY_AUTH);
+    this.$root.isLoading = false;
+  },
 };
 </script>

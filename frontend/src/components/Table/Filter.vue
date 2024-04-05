@@ -5,7 +5,7 @@
     label-cols-lg="3"
     content-cols-sm
     content-cols-lg="7"
-    label="Filtro"
+    label=""
     style="margin-bottom: 0px!important"
     label-for="input-filtro"
   >

@@ -30,8 +30,6 @@ class ProdutoGruposController extends Controller
     {
         $arr = $request->all();
 
-        $arr['id_empresa'] = $this->idEmpresa();
-
         $query = $this->service->paginate($arr);
 
         return $this->returnQuery($query);

@@ -18,8 +18,6 @@ class CreateTableProdutoUniMedida extends Migration
             $table->string('unidade', 3);
             $table->string('descricao', 100);
             $table->boolean('status')->default(true);
-            $table->integer('id_empresa')->unsigned();
-            $table->foreign('id_empresa')->references('id_empresa')->on('empresa');
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();
         });

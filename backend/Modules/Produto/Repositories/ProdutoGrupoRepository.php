@@ -13,7 +13,6 @@ class ProdutoGrupoRepository extends BaseRepository implements ProdutoGrupoInter
     public function paginate($request)
     {
         $query = $this->newQuery();
-        $query->where('id_empresa', $request['id_empresa']);
 
         if (isset($request['filter'])) {
             $query->where('descricao', 'ilike', '%' . $request['filter'] . '%');

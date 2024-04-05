@@ -1,6 +1,5 @@
 <template>
   <TableApp
-    titulo="Clientes"
     subTitulo="Cadastro de Clientes"
     api-url="/api/produto/"
     :fields="fields"
@@ -11,35 +10,38 @@
     <template slot="nome" scope="props">
       <span style="width: 250px">
         <div class="d-flex align-items-center">
-          <div class="symbol symbol-40 symbol-light-primary flex-shrink-0">
-            <span class="symbol-label font-size-h4 font-weight-bold">
-              {{ props.rowData.nome.slice(0, 1) }}
-            </span>
-          </div>
           <div class="ml-4">
             <div class="text-dark-75 font-weight-bolder font-size-lg mb-0">
-              {{ props.rowData.nome }}
+              {{ props.rowData.descricao }}
             </div>
-            <a href="#" class="text-muted font-weight-bold text-hover-primary">
-              {{ props.rowData.nome_fantasia }}
-            </a>
           </div>
         </div>
       </span>
     </template>
-    <template slot="cpfcnpj" scope="props">
+    <template slot="grupo" scope="props">
       <span style="width: 110px">
         <div class="font-weight-bolder font-size-lg mb-0">
-          {{ props.rowData.cnpj_cpf }}
+          {{ props.rowData.grupo }}
         </div>
-        <div class="font-weight-bold text-muted">
-          IE/RG: {{ props.rowData.ie_rg }}
+      </span>
+    </template>
+    <template slot="quantidade" scope="props">
+      <span style="width: 110px">
+        <div class="font-weight-bolder font-size-lg mb-0">
+          {{ props.rowData.quantidade }}
+        </div>
+      </span>
+    </template>
+    <template slot="preco" scope="props">
+      <span style="width: 110px">
+        <div class="font-weight-bolder font-size-lg mb-0">
+          {{ props.rowData.preco }}
         </div>
       </span>
     </template>
     <template slot="status" scope="props">
       <span
-        v-if="props.rowData.status == 'A'"
+        v-if="props.rowData.status == true"
         class="label label-lg label-inline label-light-success"
         >Ativo</span
       >
@@ -104,8 +106,16 @@ export default {
           title: "Nome"
         },
         {
-          name: "__slot:cpfcnpj",
-          title: "CPF/CNPJ"
+          name: "__slot:grupo",
+          title: "Categoria"
+        },
+        {
+          name: "__slot:quantidade",
+          title: "Quantidade"
+        },
+        {
+          name: "__slot:preco",
+          title: "Preço"
         },
         {
           name: "__slot:status",

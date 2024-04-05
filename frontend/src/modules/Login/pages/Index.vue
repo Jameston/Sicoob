@@ -1,24 +1,22 @@
 <template>
-  <b-row class="form-login">
-    <b-col md="4">
-      <div class="logo">
-        <img src="/assets/images/logo.png" class="logo-footer">
-      </div>
+  <div class="card">
+    <div class="card-body login-card-body">
+      <p class="login-box-msg">Informe suas credencias de acesso</p>
       <b-form class="form" @submit.stop.prevent="onSubmit">
-        <b-form-group id="input-login-user" label="" label-for="input-email">
-          <label>E-mail</label>
+        <div class="input-group mb-3">
           <b-form-input
             id="input-email"
             name="input-email"
-            v-model="form.email"
+            v-model="$v.form.email.$model"
+            :state="validateState('email')"
           ></b-form-input>
-        </b-form-group>
-        <b-form-group
-          id="input-login-password"
-          label=""
-          label-for="input-senha"
-        >
-          <label>Senha</label>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-envelope"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
           <b-form-input
             type="password"
             id="input-senha"
@@ -26,21 +24,34 @@
             v-model="$v.form.password.$model"
             :state="validateState('password')"
           ></b-form-input>
-          <b-form-invalid-feedback id="input-2-live-feedback">
-            Campo senha é obrigatório.
-          </b-form-invalid-feedback>
-        </b-form-group>
-        <button ref="button_login" class="btn btn-primary">Continuar</button>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-8"></div>
+          <div class="col-4">
+            <button
+              type="submit"
+              class="btn btn-primary btn-block"
+              ref="button_login"
+            >
+              Acessar
+            </button>
+          </div>
+        </div>
       </b-form>
-    </b-col>
-  </b-row>
+    </div>
+  </div>
 </template>
 
 <script>
 import { LOGIN } from "@/core/services/store/auth.module";
 import { mask } from "vue-the-mask";
 import { validationMixin } from "vuelidate";
-import { minLength, required } from "vuelidate/lib/validators";
+import { minLength, required, email } from "vuelidate/lib/validators";
 
 export default {
   mixins: [validationMixin],
@@ -58,6 +69,10 @@ export default {
   },
   validations: {
     form: {
+      email: {
+        required,
+        email,
+      },
       password: {
         required,
         minLength: minLength(3),
@@ -102,6 +117,7 @@ export default {
 
         this.$router.push("/");
       } catch (error) {
+        console.log(error);
         submitButton.classList.remove(
           "spinner",
           "spinner-light",
@@ -110,29 +126,11 @@ export default {
       }
     },
   },
+  mounted() {
+    this.$root.isLoading = true;
+    setTimeout(() => {
+      this.$root.isLoading = false;
+    }, 1000);
+  },
 };
 </script>
-
-<style lang="scss" scoped>
-.form-login {
-  margin-top: 15rem;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column; /* Adicionando esta linha */
-}
-
-.form-login .form-control {
-  margin-bottom: 1rem !important;
-}
-
-.logo {
-  text-align: center;
-}
-
-.logo-footer {
-  width: 20%;
-  margin-bottom: 1rem;
-}
-</style>

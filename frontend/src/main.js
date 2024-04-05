@@ -11,21 +11,6 @@ import App from './App.vue'
 import router from "./router";
 import store from "@/core/services/store";
 import { http } from "@/core/services/api.service";
-import { VERIFY_AUTH } from "@/core/services/store/auth.module";
-
-const routesNotAuth = ["register", "login"];
-
-router.beforeEach((to, from, next) => {
-  if (routesNotAuth.indexOf(from.name) == "-1") {
-    store.dispatch(VERIFY_AUTH).then(() => {
-      return next;
-    });
-  }
-  next();
-  setTimeout(() => {
-    window.scrollTo(0, 0);
-  }, 100);
-});
 
 Vue.config.productionTip = false;
 
@@ -36,5 +21,11 @@ Vue.use(VueSweetalert2);
 
 new Vue({
   router,
+  store,
   render: h => h(App),
+  data() {
+    return {
+      isLoading: false
+    }
+  }
 }).$mount('#app')

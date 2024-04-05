@@ -11,7 +11,7 @@
 |
 */
 
-Route::middleware('auth.check')->group(function() {
+//Route::middleware('auth.check')->group(function() {
     Route::prefix('produto')->group(function() {
         Route::get('/', 'ProdutoController@index');
         Route::post('/find', 'ProdutoController@find');
@@ -33,4 +33,4 @@ Route::middleware('auth.check')->group(function() {
             Route::post('/create', 'ProdutoGruposController@create');
         });
     });
-});
+//});
