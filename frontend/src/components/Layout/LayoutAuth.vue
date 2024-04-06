@@ -53,7 +53,7 @@
         <div class="container">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0">
+              <h1 class="m-0 title">
                 <small>{{ modulo != null ? modulo : "Sicoob" }}</small>
               </h1>
             </div>
@@ -96,3 +96,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.title {
+  font-size: 1.25rem !important;
+}
+</style>

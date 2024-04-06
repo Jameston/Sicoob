@@ -200,218 +200,15 @@
               </b-row>
             </b-tab>
 
-            <b-tab>
-              <b-row>
-                <b-col md="3">
-                  <b-form-group label="Tipo" label-for="tipo_endereco">
-                    <select
-                      name="tipo_endereco"
-                      id="tipo_endereco"
-                      v-model="formEndereco.tipo"
-                      class="form-control"
-                    >
-                      <option
-                        v-for="(t, index) in tipoEndereco"
-                        :value="t"
-                        :key="'tipo_endereco' + index"
-                      >
-                        {{ t.descricao }}
-                      </option>
-                    </select>
-                  </b-form-group>
-                </b-col>
-                <b-col md="3">
-                  <b-form-group label="CEP" label-for="formEndereco.cep">
-                    <b-form-input
-                      ref="cep"
-                      id="formEndereco.cep"
-                      name="formEndereco.cep"
-                      v-model="$v.formEndereco.cep.$model"
-                      :state="validateStateEndereco('cep')"
-                      v-mask="['#####-###']"
-                      @change="consultaCep"
-                      aria-describedby="formEndereco.cep"
-                    >
-                    </b-form-input>
-                  </b-form-group>
-                </b-col>
-                <b-col md="2">
-                  <b-form-group label="Número" label-for="formEndereco.numero">
-                    <b-form-input
-                      id="formEndereco.numero"
-                      name="formEndereco.numero"
-                      v-model="formEndereco.numero"
-                      aria-describedby="formEndereco.numero"
-                    >
-                    </b-form-input>
-                  </b-form-group>
-                </b-col>
-                <b-col md="3">
-                  <b-form-group label="Bairro" label-for="formEndereco.bairro">
-                    <b-form-input
-                      id="formEndereco.bairro"
-                      name="formEndereco.bairro"
-                      v-model="formEndereco.bairro"
-                      aria-describedby="formEndereco.bairro"
-                    >
-                    </b-form-input>
-                  </b-form-group>
-                </b-col>
-              </b-row>
-              <b-row>
-                <b-col>
-                  <b-form-group
-                    label="Logradouro"
-                    label-for="formEndereco.logradouro"
-                  >
-                    <b-form-input
-                      id="formEndereco.logradouro"
-                      name="formEndereco.logradouro"
-                      v-model="formEndereco.logradouro"
-                      aria-describedby="formEndereco.logradouro"
-                    >
-                    </b-form-input>
-                  </b-form-group>
-                </b-col>
-                <b-col md="4">
-                  <b-form-group
-                    label="Complemento"
-                    label-for="formEndereco.complemento"
-                  >
-                    <b-form-input
-                      id="formEndereco.complemento"
-                      name="formEndereco.complemento"
-                      v-model="formEndereco.complemento"
-                      aria-describedby="formEndereco.complemento"
-                    >
-                    </b-form-input>
-                  </b-form-group>
-                </b-col>
-                <b-col md="4">
-                  <b-form-group label="Cidade" label-for="formEndereco.cidade">
-                    <v-select
-                      label="id_cidade"
-                      @input="setCidade"
-                      :filterable="false"
-                      :options="cidades"
-                      @search="onSearch"
-                    >
-                      <template slot="no-options">
-                        Informe o nome da cidade
-                      </template>
-                      <template slot="option" slot-scope="option">
-                        <div class="d-center">
-                          {{ option.cidade + " - " + option.uf }}
-                        </div>
-                      </template>
-                      <template slot="selected-option" slot-scope="option">
-                        <div class="selected d-center">
-                          {{ option.cidade + " - " + option.uf }}
-                        </div>
-                      </template>
-                    </v-select>
-                  </b-form-group>
-                </b-col>
-                <b-col md="1">
-                  <button
-                    type="button"
-                    style="margin-top: 25px"
-                    @click="onSubmitEndereco"
-                    class="btn btn-light-primary btn-bold"
-                  >
-                    Adicionar
-                  </button>
-                </b-col>
-              </b-row>
-              <b-row>
-                <b-col md="11">
-                  <table class="table table-hover">
-                    <thead>
-                      <tr>
-                        <th>Tipo</th>
-                        <th>CEP</th>
-                        <th>Logradouro</th>
-                        <th>Bairro</th>
-                        <th>Número</th>
-                        <th>Complemento</th>
-                        <th>Cidade</th>
-                        <th></th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr
-                        v-for="(e, index) in enderecos"
-                        :key="'endereco_' + index"
-                      >
-                        <td>{{ e.tipo == null ? "" : e.tipo.descricao }}</td>
-                        <td>{{ e.cep }}</td>
-                        <td>{{ e.logradouro }}</td>
-                        <td>{{ e.bairro }}</td>
-                        <td>{{ e.numero }}</td>
-                        <td>{{ e.complemento }}</td>
-                        <td>
-                          {{
-                            e.cidade == null
-                              ? ""
-                              : e.cidade.cidade + " - " + e.cidade.uf
-                          }}
-                        </td>
-                        <td align="right">
-                          <button
-                            @click="
-                              () => {
-                                $toast.error('Endereço excluído');
-                                enderecos.splice(index, 1);
-                              }
-                            "
-                            class="btn btn-light-primary btn-sm btn-bold"
-                          >
-                            <Close :size="16" />
-                          </button>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </b-col>
-              </b-row>
-            </b-tab>
+            
 
             <b-tab>
               <b-row>
                 <b-col md="3">
-                  <b-form-group label="Tipo" label-for="tipo_pessoa">
-                    <select
-                      name="tipo_pessoa"
-                      id="tipo_pessoa"
-                      v-model="$v.formEmail.tipo.$model"
-                      :state="validateStateEmail('tipo')"
-                      class="form-control"
-                    >
-                      <option
-                        v-for="(t, index) in tipoEmail"
-                        :value="t"
-                        :key="'tipo_email' + index"
-                      >
-                        {{ t.descricao }}
-                      </option>
-                    </select>
-                  </b-form-group>
+                  
                 </b-col>
                 <b-col md="7">
-                  <b-form-group
-                    id="email"
-                    label="E-mail"
-                    label-for="formEmail.email"
-                  >
-                    <b-form-input
-                      id="formEmail.email"
-                      name="formEmail.email"
-                      v-model="$v.formEmail.email.$model"
-                      :state="validateStateEmail('email')"
-                      aria-describedby="formEmail.email"
-                    >
-                    </b-form-input>
-                  </b-form-group>
+                
                 </b-col>
                 <b-col>
                   <button
@@ -426,36 +223,7 @@
               </b-row>
               <b-row>
                 <b-col md="10">
-                  <table class="table table-hover">
-                    <thead>
-                      <tr>
-                        <th>Tipo</th>
-                        <th>E-mail</th>
-                        <th></th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr v-for="(e, index) in emails" :key="'email_' + index">
-                        <td>{{ e.tipo == null ? "" : e.tipo.descricao }}</td>
-                        <td>
-                          {{ e.email }}
-                        </td>
-                        <td align="right">
-                          <button
-                            @click="
-                              () => {
-                                $toast.error('E-mail excluído');
-                                emails.splice(index, 1);
-                              }
-                            "
-                            class="btn btn-light-primary btn-sm btn-bold"
-                          >
-                            <Close :size="16" />
-                          </button>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
+                 
                 </b-col>
               </b-row>
             </b-tab>
@@ -463,38 +231,10 @@
             <b-tab>
               <b-row>
                 <b-col md="3">
-                  <b-form-group label="Tipo" label-for="tipo_telefone">
-                    <select
-                      name="tipo_telefone"
-                      id="tipo_telefone"
-                      v-model="$v.formTelefone.tipo.$model"
-                      :state="validateStateTelefone('tipo')"
-                      class="form-control"
-                    >
-                      <option
-                        v-for="(t, index) in tipoFone"
-                        :value="t"
-                        :key="'tipo_telefone' + index"
-                      >
-                        {{ t.descricao }}
-                      </option>
-                    </select>
-                  </b-form-group>
+                 
                 </b-col>
                 <b-col md="7">
-                  <b-form-group
-                    id="telefone"
-                    label="Telefone"
-                    label-for="example-input-0"
-                  >
-                    <b-form-input
-                      v-mask="['(##) #### ####', '(##) # #### ####']"
-                      v-model="$v.formTelefone.telefone.$model"
-                      :state="validateStateTelefone('telefone')"
-                      aria-describedby="input-0-live-feedback"
-                    >
-                    </b-form-input>
-                  </b-form-group>
+                  
                 </b-col>
                 <b-col>
                   <button
@@ -509,39 +249,7 @@
               </b-row>
               <b-row>
                 <b-col md="10">
-                  <table class="table table-hover">
-                    <thead>
-                      <tr>
-                        <th>Tipo</th>
-                        <th>Telefone</th>
-                        <th></th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr
-                        v-for="(e, index) in telefones"
-                        :key="'fone_' + index"
-                      >
-                        <td>{{ e.tipo == null ? "" : e.tipo.descricao }}</td>
-                        <td>
-                          {{ e.fone }}
-                        </td>
-                        <td align="right">
-                          <button
-                            @click="
-                              () => {
-                                $toast.error('E-mail excluído');
-                                telefones.splice(index, 1);
-                              }
-                            "
-                            class="btn btn-light-primary btn-sm btn-bold"
-                          >
-                            <Close :size="16" />
-                          </button>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
+                 
                 </b-col>
               </b-row>
             </b-tab>
@@ -581,25 +289,22 @@ import { validationMixin } from "vuelidate";
 import { mask } from "vue-the-mask";
 import  PessoaMixin from "@/modules/Pessoa/mixins";
 import PessoaData, { PessoaDataRequired } from "./PessoaData";
-import Close from "vue-material-design-icons/Close.vue";
-import VueSelect from "vue-select";
+//import Close from "vue-material-design-icons/Close.vue";
+//import VueSelect from "vue-select";
 import loadsh from "loadsh";
 import "vue-select/dist/vue-select.css";
 
 export default {
-  name: "app-pessoa-form",
+  name: "app-pessoa-form-create",
   props: {
     url: {
       type: String
     },
-    pessoa: {
-      type: Object,
-      default: () => {}
-    }
+    
   },
   components: {
-    Close,
-    "v-select": VueSelect
+    //Close,
+    //"v-select": VueSelect
   },
   directives: {
     mask
@@ -624,7 +329,7 @@ export default {
     form: PessoaDataRequired
   },
   mounted() {
-    this.getDataInit();
+    //this.getDataInit();
   },
   methods: {
     setCidade(cidade) {
@@ -710,9 +415,9 @@ export default {
       }
 
       this.emails.push({
-        id_tipo_email: this.formEmail.tipo.id_tipo,
-        tipo: this.formEmail.tipo,
-        email: this.formEmail.email,
+        id_tipo_email: 1,
+        
+        email: 'this.formEmail.email',
         descricao: this.formEmail.descricao
       });
 
@@ -730,8 +435,7 @@ export default {
 
       this.telefones.push({
         id_tipo_email: this.formTelefone.tipo.id_tipo,
-        tipo: this.formTelefone.tipo,
-        telefone: this.formTelefone.telefone,
+        telefone: 'this.formTelefone.telefone',
         descricao: this.formTelefone.descricao
       });
 
@@ -760,7 +464,6 @@ export default {
         id_endereco_tipo: this.formEndereco.tipo.id_tipo,
         id_cidade: this.cidade.id_cidade,
         cidade: this.cidade,
-        tipo: this.formEndereco.tipo
       });
 
       this.$toast.success("Endereço adicionado!");

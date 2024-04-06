@@ -10,11 +10,6 @@
     <template slot="nome" scope="props">
       <span style="width: 250px">
         <div class="d-flex align-items-center">
-          <div class="symbol symbol-40 symbol-light-primary flex-shrink-0">
-            <span class="symbol-label font-size-h4 font-weight-bold">
-              {{ props.rowData.nome.slice(0, 1) }}
-            </span>
-          </div>
           <div class="ml-4">
             <div class="text-dark-75 font-weight-bolder font-size-lg mb-0">
               {{ props.rowData.nome }}
@@ -56,7 +51,7 @@
               :to="{
                 name: 'pessoaEditar',
                 params: {
-                  codigo: props.rowData.codigo
+                  codigo: props.rowData.id_pessoa
                 }
               }"
             >

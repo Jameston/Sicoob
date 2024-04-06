@@ -4,7 +4,7 @@
 
 <script>
 import Form from "./Form.vue";
-import { PessoaMixin } from "@/modules/Pessoa/mixins";
+import PessoaMixin from "../mixins/index";
 
 export default {
   name: "app-pessoa-update",
@@ -23,9 +23,8 @@ export default {
       try {
         const codigo = this.$route.params.codigo;
 
-        const pessoa = await this.getPessoaCodigo(codigo);
-
-        if (!pessoa.id_pessoa || pessoa == null) {
+        const pessoa = this.getPessoaCodigo(codigo);
+        if (!pessoa || pessoa == null) {
           return this.$toast.error("Cliente não encontrado!");
         }
 

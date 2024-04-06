@@ -3,6 +3,7 @@
     <div class="card-body login-card-body">
       <p class="login-box-msg">Informe suas credencias de acesso</p>
       <b-form class="form" @submit.stop.prevent="onSubmit">
+        <label for="input-email">E-mail</label>
         <div class="input-group mb-3">
           <b-form-input
             id="input-email"
@@ -16,7 +17,8 @@
             </div>
           </div>
         </div>
-        <div class="input-group mb-3">
+        <label for="input-password">Senha</label>
+        <div class="input-group mb-5">
           <b-form-input
             type="password"
             id="input-senha"

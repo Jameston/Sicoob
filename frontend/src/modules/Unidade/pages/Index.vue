@@ -1,7 +1,7 @@
 <template>
   <TableApp
     titulo="Unidade de medida"
-    api-url="/api/unidade/"
+    api-url="/api/produto/unidade-medidas/"
     :fields="fields"
     classFilterColumn="unidade"
     ref="unidade"
@@ -10,35 +10,24 @@
     <template slot="nome" scope="props">
       <span style="width: 250px">
         <div class="d-flex align-items-center">
-          <div class="symbol symbol-40 symbol-light-primary flex-shrink-0">
-            <span class="symbol-label font-size-h4 font-weight-bold">
-              {{ props.rowData.nome.slice(0, 1) }}
-            </span>
-          </div>
           <div class="ml-4">
             <div class="text-dark-75 font-weight-bolder font-size-lg mb-0">
-              {{ props.rowData.nome }}
+              {{ props.rowData.descricao }}
             </div>
-            <a href="#" class="text-muted font-weight-bold text-hover-primary">
-              {{ props.rowData.nome_fantasia }}
-            </a>
           </div>
         </div>
       </span>
     </template>
-    <template slot="cpfcnpj" scope="props">
+    <template slot="unidade" scope="props">
       <span style="width: 110px">
         <div class="font-weight-bolder font-size-lg mb-0">
-          {{ props.rowData.cnpj_cpf }}
-        </div>
-        <div class="font-weight-bold text-muted">
-          IE/RG: {{ props.rowData.ie_rg }}
+          {{ props.rowData.unidade }}
         </div>
       </span>
     </template>
     <template slot="status" scope="props">
       <span
-        v-if="props.rowData.status == 'A'"
+        v-if="props.rowData.status == true"
         class="label label-lg label-inline label-light-success"
         >Ativo</span
       >
@@ -103,8 +92,8 @@ export default {
           title: "Nome"
         },
         {
-          name: "__slot:cpfcnpj",
-          title: "CPF/CNPJ"
+          name: "__slot:unidade",
+          title: "Unidade"
         },
         {
           name: "__slot:status",
