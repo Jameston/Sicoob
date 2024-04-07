@@ -133,7 +133,7 @@ export default {
     excluir(data) {
       this.$swal
         .fire({
-          title: "Excluir o produto " + data.decricao + "?",
+          title: "Excluir o produto " + data.descricao + "?",
           showCancelButton: true,
           confirmButtonText: `Sim`,
           cancelButtonText: `Não`
@@ -143,7 +143,7 @@ export default {
             await this.$http.post("/api/produto/delete", {
               id_produto: data.id_produto
             });
-            this.$refs.pessoa.$refs.vuetable.refresh();
+            this.$refs.produto.$refs.vuetable.refresh();
             this.$toast.success("Produto excluído!");
           }
         });

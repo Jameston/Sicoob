@@ -7,7 +7,7 @@ export default {
   methods: {
     async getGrupo(id) {
       const { data } = await this.$http.get("/api/produto/grupos/find", {
-        id_grupo: id
+        id_produto_grupo: id
       });
       this.grupo = data;
     },

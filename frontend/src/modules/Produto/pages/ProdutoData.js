@@ -14,7 +14,7 @@ export default class PessoaData {
     status = true,
     quantidade = "",
     id_uni_medida = "",
-    id_produto_grupo = ""
+    id_produto_grupo = "",
   }) {
     this.descricao = descricao;
     this.preco = preco;

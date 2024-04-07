@@ -20,12 +20,12 @@ class Produto extends BaseModel
         'custo',
         'id_empresa',
         'id_uni_medida',
-        'id_grupo',
+        'id_produto_grupo',
     ];
 
     public function cidade()
     {
-        return $this->hasOne(ProdutoGrupo::class, 'id_grupo', 'id_grupo');
+        return $this->hasOne(ProdutoGrupo::class, 'id_produto_grupo', 'id_produto_grupo');
     }
 
     public function unidadeMedida()

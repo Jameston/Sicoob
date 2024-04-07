@@ -22,8 +22,8 @@
                   </b-form-group>
                 </b-col>
                 <b-col md="3">
-                  <b-form-group label="Grupo" label-for="id_produto">
-                    <select name="id_produto" id="id_produto" v-model="form.id_produto_grupo" class="form-control">
+                  <b-form-group label="Grupo" label-for="grupo">
+                    <select name="grupo" id="grupo" v-model="form.id_produto_grupo" class="form-control">
                       <option v-for="(t, index) in grupoProduto" :value="t.id_produto_grupo" :key="'id_produto' + index">
                         {{ t.descricao }}
                       </option>
@@ -32,6 +32,15 @@
                 </b-col>
               </b-row>
               <b-row>
+                <b-col md="3">
+                  <b-form-group label="Unidade de Medida" label-for="unidade">
+                    <select name="unidade" id="unidade" v-model="form.id_uni_medida" class="form-control">
+                      <option v-for="(t, index) in unidadeProduto" :value="t.id_uni_medida" :key="'id_produto' + index">
+                        {{ t.descricao }}
+                      </option>
+                    </select>
+                  </b-form-group>
+                </b-col>
                 <b-col>
                   <b-form-group id="quantidade" label-for="quantidade" label="Quantidade">
                     <b-form-input v-model="form.quantidade">
@@ -96,6 +105,7 @@ export default {
     return {
       tabIndex: 0,
       grupoProduto: [],
+      unidadeProduto: [],
       form: {},
     };
   },

@@ -21,8 +21,8 @@ class CreateTableProduto extends Migration
             $table->decimal('quantidade', 18, 4)->nullable()->default('0.00');
             $table->integer('id_uni_medida')->unsigned()->nullable();
             $table->foreign('id_uni_medida')->references('id_uni_medida')->on('produto_uni_medida');
-            $table->integer('id_grupo')->unsigned()->nullable();
-            $table->foreign('id_grupo')->references('id_produto_grupo')->on('produto_grupo');
+            $table->integer('id_produto_grupo')->unsigned()->nullable();
+            $table->foreign('id_produto_grupo')->references('id_produto_grupo')->on('produto_grupo');
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();
         });
