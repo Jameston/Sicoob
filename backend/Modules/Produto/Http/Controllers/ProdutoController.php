@@ -4,6 +4,7 @@ namespace Modules\Produto\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Modules\Pessoa\Http\Requests\CodigoRequest;
 use Modules\Produto\Http\Requests\IDRequest;
 use Modules\Produto\Http\Requests\CreateRequest;
 use Modules\Produto\Http\Requests\UpdateRequest;
@@ -35,7 +36,6 @@ class ProdutoController extends Controller
     public function create(CreateRequest $request)
     {
         $arr = $request->all();
-        $arr['id_empresa'] = $this->idEmpresa();
 
         $query = $this->service->createProduto($arr);
 
@@ -45,7 +45,6 @@ class ProdutoController extends Controller
     public function update(UpdateRequest $request)
     {
         $arr = $request->all();
-        $arr['id_empresa'] = $this->idEmpresa();
 
         $query = $this->service->updateProduto($arr);
 
@@ -55,6 +54,13 @@ class ProdutoController extends Controller
     public function destroy(IDRequest $request)
     {
         $query = $this->service->delete($request->get('id_produto'));
+
+        return $this->returnQuery($query);
+    }
+
+    public function getByCodigo(CodigoRequest $request)
+    {
+        $query = $this->service->getByCodigo($request->get('codigo'));
 
         return $this->returnQuery($query);
     }

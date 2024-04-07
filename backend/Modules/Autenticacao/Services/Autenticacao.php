@@ -25,6 +25,7 @@ class Autenticacao
                 'password' => $request['password']
             ])) {
                 $user = Auth::user();
+
                 $user['token'] = $user->createToken('Laravel Password Grant Client')->accessToken;
                 $user['msg'] = 'Logado com sucesso!';
 

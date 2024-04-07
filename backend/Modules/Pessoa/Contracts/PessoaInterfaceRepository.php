@@ -8,7 +8,7 @@ interface PessoaInterfaceRepository extends BaseIRepository
 {
     public function getPessoaDados($idPessoa);
 
-    public function getByCodigo($codigo, $idEmpresa);
+    public function getByCodigo($codigo);
 
     public function paginate($request);
 

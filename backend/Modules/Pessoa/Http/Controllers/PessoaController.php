@@ -34,7 +34,7 @@ class PessoaController extends Controller
 
     public function getByCodigo(CodigoRequest $request)
     {
-        $query = $this->service->getByCodigo($request->get('codigo'), $this->idEmpresa());
+        $query = $this->service->getByCodigo($request->get('codigo'));
 
         return $this->returnQuery($query);
     }
@@ -49,7 +49,6 @@ class PessoaController extends Controller
     public function create(CreateRequest $request)
     {
         $arr = $request->all();
-        $arr['id_empresa'] = $this->idEmpresa();
 
         $query = $this->service->createPessoa($arr);
 
@@ -70,6 +69,13 @@ class PessoaController extends Controller
         $arr = $request->all();
 
         $query = $this->service->delete($arr['id_pessoa']);
+
+        return $this->returnQuery($query);
+    }
+
+    public function getPessoaTipo()
+    {
+        $query = $this->service->getPessoaTipo();
 
         return $this->returnQuery($query);
     }

@@ -1,17 +1,17 @@
 <template>
-  <Form url="/pessoa/update" v-if="!loader" :pessoa="pessoa" />
+  <Form url="/api/produto/unidade-medidas/update" v-if="!loader" :unidade="unidade" />
 </template>
 
 <script>
 import Form from "./Form.vue";
-import { PessoaMixin } from "@/modules/Pessoa/mixins";
+import UnidadeMixin from "@/modules/Unidade/mixins";
 
 export default {
-  name: "app-pessoa-update",
-  mixins: [PessoaMixin],
+  name: "app-unidade-update",
+  mixins: [UnidadeMixin],
   data() {
     return {
-      pessoa: {},
+      unidade: {},
       loader: true
     };
   },
@@ -23,13 +23,13 @@ export default {
       try {
         const codigo = this.$route.params.codigo;
 
-        const pessoa = await this.getPessoaCodigo(codigo);
+        const unidade = await this.getUnidadeCodigo(codigo);
 
-        if (!pessoa.id_pessoa || pessoa == null) {
-          return this.$toast.error("Cliente não encontrado!");
+        if (!unidade.id_uni_medida || unidade == null) {
+          return this.$toast.error("Unidade de Medida não encontrado!");
         }
 
-        this.pessoa = await pessoa;
+        this.unidade = await unidade;
         this.loader = false;
       } catch (error) {
         console.log(error);

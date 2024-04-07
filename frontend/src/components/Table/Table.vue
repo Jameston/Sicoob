@@ -20,11 +20,29 @@
             :loadFilter="loadFilter"
           >
           </filter-bar>
-          <a
-            v-if="acaoBtn != null"
-            :href="acaoBtn"
-            class="btn btn-danger font-weight-bolder font-size-sm"
-            >{{ textoBtn }}</a
+          <router-link
+            v-if="acaoBtn == 'pessoa'"
+            :to="{ name: 'pessoaNova'}"
+            class="btn btn-primary btn-novo font-weight-bolder font-size-sm"
+            >{{ textoBtn }}</router-link
+          >
+          <router-link
+            v-if="acaoBtn == 'produto'"
+            :to="{ name: 'produtoNova'}"
+            class="btn btn-primary btn-novo font-weight-bolder font-size-sm"
+            >{{ textoBtn }}</router-link
+          >
+          <router-link
+            v-if="acaoBtn == 'grupo'"
+            :to="{ name: 'grupoNova'}"
+            class="btn btn-primary btn-novo font-weight-bolder font-size-sm"
+            >{{ textoBtn }}</router-link
+          >
+          <router-link
+            v-if="acaoBtn == 'unidade'"
+            :to="{ name: 'unidadeNova'}"
+            class="btn btn-primary btn-novo font-weight-bolder font-size-sm"
+            >{{ textoBtn }}</router-link
           >
         </div>
       </div>
@@ -296,6 +314,9 @@ export default {
 </script>
 
 <style>
+.btn-novo:hover {
+  color: #FFF!important;
+}
 .vuetable-pagination {
   margin-top: 20px;
   margin-bottom: 20px;

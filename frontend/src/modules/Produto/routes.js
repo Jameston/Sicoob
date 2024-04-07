@@ -11,15 +11,15 @@ export default [
       },
       {
         name: "produtoNova",
-        path: "nova",
+        path: "novo",
         component: () => import("@/modules/Produto/pages/Create"),
-        meta: { modulo: "Produtos", id_tipo: 1 }
+        meta: { modulo: "Cadatro de Produto", id_tipo: 1 }
       },
       {
         name: "produtoEditar",
         path: ":codigo/editar",
         component: () => import("@/modules/Produto/pages/Update"),
-        meta: { modulo: "Produtos", id_tipo: 1 }
+        meta: { modulo: "Editar Produto", id_tipo: 1 }
       }
     ]
   }

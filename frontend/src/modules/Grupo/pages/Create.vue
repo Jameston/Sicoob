@@ -1,5 +1,5 @@
 <template>
-  <Form url="/grupo/create" :grupo="{}" />
+  <Form url="/api/produto/grupos/create" :grupo="null" />
 </template>
 
 <script>
@@ -12,3 +12,5 @@ export default {
   },
 };
 </script>
+
+

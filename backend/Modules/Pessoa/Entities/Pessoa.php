@@ -4,7 +4,6 @@ namespace Modules\Pessoa\Entities;
 
 use App\Entities\BaseModel;
 use Modules\Sistema\Entities\Cidade;
-use Modules\Sistema\Entities\PessoaTipo;
 
 class Pessoa extends BaseModel
 {

@@ -4,6 +4,7 @@
     api-url="/api/produto/unidade-medidas/"
     :fields="fields"
     classFilterColumn="unidade"
+    acaoBtn="unidade"
     ref="unidade"
     :perPage="10"
   >
@@ -43,9 +44,9 @@
               class="btn btn-sm btn-default btn-text-primary btn-hover-primary btn-icon mr-2"
               title="Editar"
               :to="{
-                name: 'pessoaEditar',
+                name: 'unidadeEditar',
                 params: {
-                  codigo: props.rowData.codigo
+                  codigo: props.rowData.id_uni_medida
                 }
               }"
             >
@@ -110,18 +111,18 @@ export default {
     excluir(data) {
       this.$swal
         .fire({
-          title: "Excluir o cliente " + data.nome + "?",
+          title: "Excluir o cliente " + data.descricao + "?",
           showCancelButton: true,
           confirmButtonText: `Sim`,
           cancelButtonText: `Não`
         })
         .then(async result => {
           if (result.isConfirmed) {
-            await this.$http.post("/pessoa/delete", {
-              id_pessoa: data.id_pessoa
+            await this.$http.post("/api/produto/unidade-medidas/delete", {
+              id_uni_medida: data.id_uni_medida
             });
-            this.$refs.pessoa.$refs.vuetable.refresh();
-            this.$toast.success("Cliente excluído!");
+            this.$refs.unidade.$refs.vuetable.refresh();
+            this.$toast.success("Excluído com sucesso!");
           }
         });
     }

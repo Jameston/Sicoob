@@ -13,7 +13,6 @@ class ProdutoUniMedidaRepository extends BaseRepository implements ProdutoUniMed
     public function paginate($request)
     {
         $query = $this->newQuery();
-        $query->where('id_empresa', $request['id_empresa']);
 
         if (isset($request['filter'])) {
             $query->where('descricao', 'ilike', '%' . $request['filter'] . '%');
@@ -24,5 +23,14 @@ class ProdutoUniMedidaRepository extends BaseRepository implements ProdutoUniMed
         }
 
         return $query->paginate($request['per_page']);
+    }
+
+    public function getByCodigo($codigo)
+    {
+        $query = $this->newQuery();
+        $query->where('id_uni_medida', $codigo)
+            ->select('produto_uni_medida.*');
+
+        return $query->get()->first();
     }
 }

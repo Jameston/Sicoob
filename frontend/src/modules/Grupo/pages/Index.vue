@@ -4,6 +4,7 @@
     api-url="/api/produto/grupos/"
     :fields="fields"
     classFilterColumn="grupo"
+    acaoBtn="grupo"
     ref="grupo"
     :perPage="10"
   >
@@ -36,9 +37,9 @@
               class="btn btn-sm btn-default btn-text-primary btn-hover-primary btn-icon mr-2"
               title="Editar"
               :to="{
-                name: 'pessoaEditar',
+                name: 'grupoEditar',
                 params: {
-                  codigo: props.rowData.codigo
+                  codigo: props.rowData.id_produto_grupo
                 }
               }"
             >
@@ -99,18 +100,18 @@ export default {
     excluir(data) {
       this.$swal
         .fire({
-          title: "Excluir o cliente " + data.nome + "?",
+          title: "Excluir o grupo " + data.descricao + "?",
           showCancelButton: true,
           confirmButtonText: `Sim`,
           cancelButtonText: `Não`
         })
         .then(async result => {
           if (result.isConfirmed) {
-            await this.$http.post("/pessoa/delete", {
-              id_pessoa: data.id_pessoa
+            await this.$http.post("/api/produto/grupos/delete", {
+              id_produto_grupo: data.id_produto_grupo
             });
-            this.$refs.pessoa.$refs.vuetable.refresh();
-            this.$toast.success("Cliente excluído!");
+            this.$refs.grupo.$refs.vuetable.refresh();
+            this.$toast.success("Grupo excluído!");
           }
         });
     }

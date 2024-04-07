@@ -31,6 +31,10 @@ http.interceptors.response.use(
         return response;
     },
     (error) => {
+        if (!error.response) {
+            return Promise.reject(error);
+        }
+        
         if (error.response.status == 401) {
             Vue.$toast.error(`É necessário estar logado!`);
             window.location.href = `/#/login`;

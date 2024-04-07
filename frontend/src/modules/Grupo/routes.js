@@ -13,13 +13,13 @@ export default [
         name: "grupoNova",
         path: "nova",
         component: () => import("@/modules/Grupo/pages/Create"),
-        meta: { modulo: "Grupos", id_tipo: 1 }
+        meta: { modulo: "Cadastro de Grupo", id_tipo: 1 }
       },
       {
         name: "grupoEditar",
         path: ":codigo/editar",
         component: () => import("@/modules/Grupo/pages/Update"),
-        meta: { modulo: "Grupos", id_tipo: 1 }
+        meta: { modulo: "Editar Grupo", id_tipo: 1 }
       }
     ]
   }

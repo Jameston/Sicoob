@@ -7,4 +7,7 @@ use App\Contracts\BaseIRepository;
 interface ProdutoGrupoInterfaceRepository extends BaseIRepository
 {
     public function paginate($request);
+
+    public function getByCodigo($request);
+
 }

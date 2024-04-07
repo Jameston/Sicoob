@@ -4,6 +4,7 @@
     api-url="/api/pessoa/"
     :fields="fields"
     classFilterColumn="pessoa"
+    acaoBtn="pessoa"
     ref="pessoa"
     :perPage="10"
   >
@@ -33,7 +34,7 @@
     </template>
     <template slot="status" scope="props">
       <span
-        v-if="props.rowData.status == 'A'"
+        v-if="props.rowData.status == true"
         class="label label-lg label-inline label-light-success"
         >Ativo</span
       >
@@ -123,7 +124,7 @@ export default {
         })
         .then(async result => {
           if (result.isConfirmed) {
-            await this.$http.post("/pessoa/delete", {
+            await this.$http.post("/api/pessoa/delete", {
               id_pessoa: data.id_pessoa
             });
             this.$refs.pessoa.$refs.vuetable.refresh();

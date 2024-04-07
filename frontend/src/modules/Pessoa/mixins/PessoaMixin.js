@@ -24,7 +24,7 @@ export default {
       return data;
     },
     async getTipoPessoa() {
-      const { data } = await this.$http.post("/api/pessoa/tipo");
+      const { data } = await this.$http.post("/api/sistema/tipo/pessoa");
       return data;
     },
   }

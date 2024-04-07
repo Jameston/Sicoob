@@ -4,6 +4,7 @@
     api-url="/api/produto/"
     :fields="fields"
     classFilterColumn="produto"
+    acaoBtn="produto"
     ref="produto"
     :perPage="10"
   >
@@ -57,9 +58,9 @@
               class="btn btn-sm btn-default btn-text-primary btn-hover-primary btn-icon mr-2"
               title="Editar"
               :to="{
-                name: 'pessoaEditar',
+                name: 'produtoEditar',
                 params: {
-                  codigo: props.rowData.codigo
+                  codigo: props.rowData.id_produto
                 }
               }"
             >
@@ -132,18 +133,18 @@ export default {
     excluir(data) {
       this.$swal
         .fire({
-          title: "Excluir o cliente " + data.nome + "?",
+          title: "Excluir o produto " + data.decricao + "?",
           showCancelButton: true,
           confirmButtonText: `Sim`,
           cancelButtonText: `Não`
         })
         .then(async result => {
           if (result.isConfirmed) {
-            await this.$http.post("/pessoa/delete", {
-              id_pessoa: data.id_pessoa
+            await this.$http.post("/api/produto/delete", {
+              id_produto: data.id_produto
             });
             this.$refs.pessoa.$refs.vuetable.refresh();
-            this.$toast.success("Cliente excluído!");
+            this.$toast.success("Produto excluído!");
           }
         });
     }

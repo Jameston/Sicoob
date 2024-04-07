@@ -29,7 +29,7 @@ const actions = {
   [LOGIN](context, credentials) {
     return new Promise((resolve, reject) => {
       http
-        .post("/autenticacao", credentials)
+        .post("/api/autenticacao", credentials)
         .then(({ data }) => {
           context.commit(SET_AUTH, data);
           resolve(data);
@@ -42,7 +42,7 @@ const actions = {
   [LOGOUT](context) {
     return new Promise((resolve, reject) => {
       http
-        .post("/autenticacao/logout")
+        .post("/api/autenticacao/logout")
         .then(async ({ data }) => {
           context.commit(PURGE_AUTH);
           resolve(data);
@@ -69,22 +69,20 @@ const actions = {
     });
   },
   [VERIFY_AUTH](context) {
-    if (TokenService.getToken()) {
-      return new Promise((resolve, reject) => {
-        http
-          .get("/autenticacao/dados")
-          .then(({ data }) => {
-            context.commit(SET_AUTH, data);
-            resolve(data);
-          })
-          .catch(({ response }) => {
-            if (!response) return;
-            context.commit(SET_ERROR, response.data.errors);
-            reject(response);
-          });
+    return new Promise((resolve, reject) => {
+      http
+        .get("/api/autenticacao/dados")
+        .then(({ data }) => {
+          context.commit(SET_AUTH, data);
+          resolve(data);
+        })
+        .catch(({ response }) => {
+          if (!response) return;
+          context.commit(SET_ERROR, response.data.errors);
+          reject(response);
+        });
       });
     }
-  }
 };
 
 const mutations = {

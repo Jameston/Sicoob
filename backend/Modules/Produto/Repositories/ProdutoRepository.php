@@ -35,4 +35,13 @@ class ProdutoRepository extends BaseRepository implements ProdutoInterfaceReposi
 
         return $query->paginate($request['per_page']);
     }
+
+    public function getByCodigo($codigo)
+    {
+        $query = $this->newQuery();
+        $query->where('id_produto', $codigo)
+            ->select('produto.*');
+
+        return $query->get()->first();
+    }
 }

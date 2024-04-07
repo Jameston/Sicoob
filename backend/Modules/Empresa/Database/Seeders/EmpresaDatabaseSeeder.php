@@ -28,7 +28,6 @@ class EmpresaDatabaseSeeder extends Seeder
                 'cep' => '89700000',
                 'logradouro' => 'Centro',
                 'numero' => '80',
-                'id_cidade' => '4204301',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
@@ -40,14 +39,13 @@ class EmpresaDatabaseSeeder extends Seeder
                 'cep' => '89700000',
                 'logradouro' => 'Centro',
                 'numero' => '80',
-                'id_cidade' => '4204301',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
         );
 
         $usuario = Usuario::create([
-            'usuario' => 'jamescon@gmail.com',
+            'usuario' => 'jameston@gmail.com',
             'password' => bcrypt(123),
             'remember_token' => true,
             'nome' => 'Jameston',

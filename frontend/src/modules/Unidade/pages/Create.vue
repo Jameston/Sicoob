@@ -1,5 +1,5 @@
 <template>
-  <Form url="/unidade/create" :unidade="{}" />
+  <Form url="/api/produto/unidade-medidas/create" :unidade="null" />
 </template>
 
 <script>

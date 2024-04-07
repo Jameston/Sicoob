@@ -5,6 +5,7 @@ namespace Modules\Produto\Http\Controllers;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Modules\Pessoa\Http\Requests\CodigoRequest;
 use Modules\Produto\Http\Requests\UnidadeMedidas\IDRequest;
 use Modules\Produto\Http\Requests\UnidadeMedidas\CreateRequest;
 use Modules\Produto\Http\Requests\UnidadeMedidas\UpdateRequest;
@@ -30,8 +31,6 @@ class ProdutoUnidadeMedidasController extends Controller
     {
         $arr = $request->all();
 
-        $arr['id_empresa'] = $this->idEmpresa();
-
         $query = $this->service->paginate($arr);
 
         return $this->returnQuery($query);
@@ -48,8 +47,6 @@ class ProdutoUnidadeMedidasController extends Controller
     {
         $arr = $request->all();
 
-        $arr['id_empresa'] = $this->idEmpresa();
-
         $query = $this->service->create($arr);
 
         return $this->returnQuery($query);
@@ -59,8 +56,6 @@ class ProdutoUnidadeMedidasController extends Controller
     {
         $arr = $request->all();
 
-        $arr['id_empresa'] = $this->idEmpresa();
-
         $query = $this->service->update($arr['id_uni_medida'], $arr);
 
         return $this->returnQuery($query);
@@ -69,6 +64,13 @@ class ProdutoUnidadeMedidasController extends Controller
     public function destroy(IDRequest $request)
     {
         $query = $this->service->delete($request->get('id_uni_medida'));
+
+        return $this->returnQuery($query);
+    }
+    
+    public function getByCodigo(CodigoRequest $request)
+    {
+        $query = $this->service->getByCodigo($request->get('codigo'));
 
         return $this->returnQuery($query);
     }

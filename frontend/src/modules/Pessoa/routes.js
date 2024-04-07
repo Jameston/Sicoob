@@ -13,13 +13,13 @@ export default [
         name: "pessoaNova",
         path: "nova",
         component: () => import("@/modules/Pessoa/pages/Create"),
-        meta: { modulo: "Pessoas", id_tipo: 1 }
+        meta: { modulo: "Nova Pessoa", id_tipo: 1 }
       },
       {
         name: "pessoaEditar",
         path: ":codigo/editar",
         component: () => import("@/modules/Pessoa/pages/Update"),
-        meta: { modulo: "Pessoas", id_tipo: 1 }
+        meta: { modulo: "Editar Pessoa", id_tipo: 1 }
       }
     ]
   }

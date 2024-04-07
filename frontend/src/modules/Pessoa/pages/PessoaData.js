@@ -2,46 +2,48 @@ import { required } from "vuelidate/lib/validators";
 
 export default class PessoaData {
   nome = "";
-  responsavel = "";
-  status = "A";
-  observacao = "";
+  status = true;
   cnpj_cpf = "";
   ie_rg = "";
-  inscricao_municipal = "";
-  nome_fantasia = "";
-  id_empresa = 1;
-  id_pessoa_tipo = 1;
-  email = [];
-  endereco = [];
-  telefone = [];
+  id_pessoa_tipo = [];
+  email = "";
+  telefone = "";
+  cep = "";
+  logradouro = "";
+  bairro = "";
+  numero = "";
+  cidade = "";
+  complemento = "";
+
   constructor({
     nome = "",
-    responsavel = "",
-    status = "A",
-    observacao = "",
+    status = true,
     cnpj_cpf = "",
     ie_rg = "",
-    inscricao_municipal = "",
-    nome_fantasia = "",
-    id_empresa = 1,
-    id_pessoa_tipo = 1,
-    email = [],
-    endereco = [],
-    telefone = []
+    id_pessoa_tipo = [],
+    email = "",
+    telefone = "",
+    cep = "",
+    logradouro = "",
+    bairro = "",
+    numero = "",
+    cidade = "",
+    complemento = "",
   }) {
     this.nome = nome;
-    this.responsavel = responsavel;
     this.status = status;
-    this.observacao = observacao;
     this.cnpj_cpf = cnpj_cpf;
     this.ie_rg = ie_rg;
-    this.inscricao_municipal = inscricao_municipal;
-    this.nome_fantasia = nome_fantasia;
-    this.id_empresa = id_empresa;
-    this.id_pessoa_tipo = id_pessoa_tipo;
+    this.id_pessoa_tipo.id_pessoa_tipo = id_pessoa_tipo;
     this.email = email;
-    this.endereco = endereco;
     this.telefone = telefone;
+    this.cep = cep;
+    this.logradouro = logradouro;
+    this.bairro = bairro;
+    this.numero = numero;
+    this.cidade = cidade;
+    this.complemento = complemento;
+
   }
 }
 

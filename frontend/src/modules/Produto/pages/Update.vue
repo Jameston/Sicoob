@@ -1,17 +1,17 @@
 <template>
-  <Form url="/pessoa/update" v-if="!loader" :pessoa="pessoa" />
+  <Form url="/api/produto/update" v-if="!loader" :produto="produto" />
 </template>
 
 <script>
 import Form from "./Form.vue";
-import { PessoaMixin } from "@/modules/Pessoa/mixins";
+import ProdutoMixin from "@/modules/Produto/mixins";
 
 export default {
-  name: "app-pessoa-update",
-  mixins: [PessoaMixin],
+  name: "app-produto-update",
+  mixins: [ProdutoMixin],
   data() {
     return {
-      pessoa: {},
+      produto: {},
       loader: true
     };
   },
@@ -23,13 +23,13 @@ export default {
       try {
         const codigo = this.$route.params.codigo;
 
-        const pessoa = await this.getPessoaCodigo(codigo);
+        const produto = await this.getProdutoCodigo(codigo);
 
-        if (!pessoa.id_pessoa || pessoa == null) {
-          return this.$toast.error("Cliente não encontrado!");
+        if (!produto.id_produto || produto == null) {
+          return this.$toast.error("Produto não encontrado!");
         }
 
-        this.pessoa = await pessoa;
+        this.produto = await produto;
         this.loader = false;
       } catch (error) {
         console.log(error);

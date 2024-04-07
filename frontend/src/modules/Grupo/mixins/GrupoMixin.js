@@ -5,20 +5,20 @@ export default {
     };
   },
   methods: {
-    async getPessoa(id) {
-      const { data } = await this.$http.get("/grupo/find", {
+    async getGrupo(id) {
+      const { data } = await this.$http.get("/api/produto/grupos/find", {
         id_grupo: id
       });
       this.grupo = data;
     },
-    async getPessoaNome(nome) {
-      const { data } = await this.$http.post("/grupo/nome", {
+    async getGrupoNome(nome) {
+      const { data } = await this.$http.post("/api/produto/grupos/nome", {
         nome
       });
       return data;
     },
-    async getPessoaCodigo(codigo) {
-      const { data } = await this.$http.post("/grupo/codigo", {
+    async getGrupoCodigo(codigo) {
+      const { data } = await this.$http.post("/api/produto/grupos/codigo", {
         codigo
       });
       return data;

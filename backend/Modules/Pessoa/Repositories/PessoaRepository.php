@@ -14,7 +14,7 @@ class PessoaRepository extends BaseRepository implements PessoaInterfaceReposito
     {
         $query = $this->newQuery();
         $query->where('id_pessoa', $idPessoa)
-            ->leftJoin('pessoa_tipo as pt', 'pt.id_tipo', '=', 'pessoa.id_pessoa_tipo')
+            ->leftJoin('pessoa_tipo as pt', 'pt.id_pessoa_tipo', '=', 'pessoa.id_pessoa_tipo')
             ->select('pessoa.*', 'pt.descricao as tipo_cliente')
             ->with('enderecos')
             ->with('fones')
@@ -23,17 +23,12 @@ class PessoaRepository extends BaseRepository implements PessoaInterfaceReposito
         return $query->get()->first();
     }
 
-    public function getByCodigo($codigo, $idEmpresa)
+    public function getByCodigo($codigo)
     {
         $query = $this->newQuery();
-        $query->where('codigo', $codigo)
-            ->where('id_empresa', $idEmpresa)
-            ->leftJoin('pessoa_tipo as pt', 'pt.id_tipo', '=', 'pessoa.id_pessoa_tipo')
-            ->select('pessoa.*', 'pt.descricao as tipo_cliente')
-            ->with('enderecos.tipo')
-            ->with('enderecos.cidade')
-            ->with('fones.tipo')
-            ->with('emails.tipo');
+        $query->where('id_pessoa', $codigo)
+            ->leftJoin('pessoa_tipo as pt', 'pt.id_pessoa_tipo', '=', 'pessoa.id_pessoa')
+            ->select('pessoa.*', 'pt.descricao as tipo_cliente');
 
         return $query->get()->first();
     }
@@ -41,23 +36,14 @@ class PessoaRepository extends BaseRepository implements PessoaInterfaceReposito
     public function paginate($request)
     {
         $query = $this->newQuery();
-        $query->leftJoin('pessoa_tipo as pt', 'pt.id_tipo', '=', 'pessoa.id_pessoa')
+        $query->leftJoin('pessoa_tipo as pt', 'pt.id_pessoa_tipo', '=', 'pessoa.id_pessoa')
             ->select('pessoa.*', 'pt.descricao as tipo_cliente');
-
-        if (isset($request['columnFilters'])) {
-            foreach ($request['columnFilters'] as $key => $c) {
-                $query->where($key, 'ilike', '%' . $c . '%');
-            }
+        if (isset($request['filter'])) {
+            $query->where('nome', 'ilike', '%' . $request['filter'] . '%');
         }
 
         if (isset($request['sort'])) {
-            foreach ($request['sort'] as $key => $s) {
-                if (is_null($s)) {
-                    $query = $query->orderBy('id_pessoa', 'desc');
-                    break;
-                }
-                $query = $query->orderBy($s['field'], $s['type']);
-            }
+            $query = $query->orderBy('nome', 'desc');
         }
 
         return $query->paginate($request['per_page']);

@@ -23,6 +23,7 @@ class CreateTableEmpresa extends Migration
             $table->string('numero', 20)->nullable();
             $table->string('complemento', 100)->nullable();
             $table->string('bairro', 100)->nullable();
+            $table->string('cidade', 100)->nullable();
             $table->integer('id_cidade')->unsigned()->nullable();
             $table->foreign('id_cidade')->references('id_cidade')->on('cidade');
             $table->string('email', 100)->nullable();

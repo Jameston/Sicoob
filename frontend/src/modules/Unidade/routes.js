@@ -7,19 +7,19 @@ export default [
         name: "unidadeLista",
         path: "",
         component: () => import("@/modules/Unidade/pages/Index"),
-        meta: { modulo: "Unidades", id_tipo: 1 }
+        meta: { modulo: "Unidade de Medida", id_tipo: 1 }
       },
       {
         name: "unidadeNova",
         path: "nova",
         component: () => import("@/modules/Unidade/pages/Create"),
-        meta: { modulo: "Unidades", id_tipo: 1 }
+        meta: { modulo: "Cadastro Unidade de Medida", id_tipo: 1 }
       },
       {
         name: "unidadeEditar",
         path: ":codigo/editar",
         component: () => import("@/modules/Unidade/pages/Update"),
-        meta: { modulo: "Unidades", id_tipo: 1 }
+        meta: { modulo: "Editar Unidade de Medida", id_tipo: 1 }
       }
     ]
   }

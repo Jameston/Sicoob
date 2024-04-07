@@ -5,7 +5,7 @@ namespace Modules\Sistema\Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
-use Modules\Sistema\Entities\PessoaTipo;
+use Modules\Pessoa\Entities\PessoaTipo as EntitiesPessoaTipo;
 
 class SistemaDatabaseSeeder extends Seeder
 {
@@ -26,7 +26,7 @@ class SistemaDatabaseSeeder extends Seeder
 
         $this->command->info('Cidades inseridas!');
 
-        PessoaTipo::insert([
+        EntitiesPessoaTipo::insert([
             [
                 'descricao' => 'Cliente',
                 'created_at' => date('Y-m-d H:i:s'),

@@ -1,5 +1,5 @@
 <template>
-  <Form url="/pessoa/update" v-if="!loader" :pessoa="pessoa" />
+  <Form url="/api/pessoa/update" v-if="!loader" :pessoa="pessoa" />
 </template>
 
 <script>

@@ -10,9 +10,12 @@ class ServicePessoa extends ServiceBase
 {
     public $repository;
 
-    public function __construct(PessoaInterfaceRepository $repository) {
-        $this->repository = $repository;
-    }
+    public function __construct(
+        PessoaInterfaceRepository $repository 
+        ) 
+        {
+            $this->repository = $repository;
+        }
 
     public function getPessoaDados($idPessoa)
     {
@@ -32,10 +35,10 @@ class ServicePessoa extends ServiceBase
         };
     }
 
-    public function getByCodigo($codigo, $idEmpresa)
+    public function getByCodigo($codigo)
     {
         try {
-            $dados = $this->repository->getByCodigo($codigo, $idEmpresa);
+            $dados = $this->repository->getByCodigo($codigo);
             return [
                 'status' => true,
                 'data' => $dados,
@@ -146,6 +149,26 @@ class ServicePessoa extends ServiceBase
         } catch (\Exception $e) {
             DB::rollback();
 
+            return [
+                'status' => false,
+                'data' => [],
+                'msg' => $e->getMessage()
+            ];
+        };
+    }
+
+    public function getPessoaTipo()
+    {
+        try {
+            $dados = $this->repository->all(); 
+
+            return [
+                'status' => true,
+                'data' => $dados,
+                'msg' => ''
+            ];
+        }
+        catch (\Exception $e) {
             return [
                 'status' => false,
                 'data' => [],

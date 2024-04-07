@@ -100,4 +100,22 @@ class ServiceProduto extends ServiceBase
            ];
        };
     }
+
+    public function getByCodigo($codigo)
+    {
+        try {
+            $dados = $this->repository->getByCodigo($codigo);
+            return [
+                'status' => true,
+                'data' => $dados,
+                'msg' => ''
+            ];
+        } catch (\Exception $e) {
+            return [
+                'status' => false,
+                'data' => [],
+                'msg' => $e->getMessage()
+            ];
+        };
+    }
 }

@@ -1,9 +1,9 @@
 <template>
-  <Form url="/api/pessoa/create" :pessoa="{}" />
+  <Form url="/api/pessoa/create" :pessoa="null" />
 </template>
 
 <script>
-import Form from "./FormCreate.vue";
+import Form from "./Form.vue";
 
 export default {
   name: "app-pessoa-create",
